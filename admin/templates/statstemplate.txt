@@ -1,0 +1,8 @@
+<blockquote>Script used: <a href="https://scripts.robotess.net" target="_blank" title="PHP Scripts collection">Enthusiast [Robotess Fork]</a><br />
+Opened: $$stat_opened$$<br />
+Last updated: $$stat_updated$$<br />
+Member count: $$stat_approved$$, from $$stat_countries$$ countries<br />
+Pending members: $$stat_pending$$<br />
+Newest members: $$stat_newmembers$$<br />
+Growth rate: $$stat_average$$ fans/day
+</blockquote>
