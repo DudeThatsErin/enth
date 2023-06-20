@@ -25,4 +25,4 @@
 use RobotessNet\App;
 
 ?>
-Powered by <?= App::getLink() ?> (original author: <a href="http://scripts.indisguise.org" target="_blank">Angela Sabas</a>)
+Powered by <?= App::getLink() ?> (original author: <a href="http://scripts.indisguise.org" target="_blank">Angela Sabas</a> & current contributor: <a href="https://github.com/DudeThatsErin/enth" target="_blank">Erin</a>)

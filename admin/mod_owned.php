@@ -355,7 +355,6 @@ function show_edit_forms()
 
                 <tr>
                     <td>
-                        Category
                         Listing Category
                     </td>
                     <td>
@@ -450,6 +449,8 @@ function show_edit_forms()
                 <tr class="rowshade">
                     <td rowspan="3">
                         Image
+                        <br />
+                        <strong>Note:</strong> Make sure you have created the directories<br />before uploading an image.<br />Image upload WILL fail if the directories<br />have not been created yet.
                     </td>
                     <td>
                         <?php

@@ -5,6 +5,7 @@ declare(strict_types = 1);
  * Enthusiast: Listing Collective Management System
  * Copyright (c) by Angela Sabas http://scripts.indisguise.org/
  * Copyright (c) 2019 by Ekaterina (contributor) http://scripts.robotess.net
+ * Copyright (c) 2023 by Erin (contributor) https://github.com/DudeThatsErin/enth
  *
  * Enthusiast is a tool for (fan)listing collective owners to easily
  * maintain their listing collectives and listings under that collective.
@@ -78,7 +79,7 @@ foreach ($_COOKIE as $index => $value) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Enthusiast <?= RobotessNet\App::getVersion() ?> ~ Listing Collective Management System </title>
     <meta name="author"
-          content="Angela Maria Protacia M. Sabas, Lysianthus <she@lysianth.us>, Ekaterina [http://robotess.net]"/>
+          content="Angela Maria Protacia M. Sabas, Lysianthus <she@lysianth.us>, Ekaterina [http://robotess.net], Erin Skidds [https://github.com/DudeThatsErin/enth]"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css?v=3"/>

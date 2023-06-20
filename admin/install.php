@@ -4,6 +4,7 @@
  * Copyright (c) by Angela Sabas http://scripts.indisguise.org/
  * Copyright (c) 2018 by Lysianthus (contributor) <she@lysianth.us>
  * Copyright (c) 2020 by Ekaterina (contributor) http://scripts.robotess.net
+ * Copyright (c) 2023 by Erin (contributor) https://github.com/DudeThatsErin/enth
  *
  * Enthusiast is a tool for (fan)listing collective owners to easily
  * maintain their listing collectives and listings under that collective.
@@ -33,11 +34,11 @@ $show_form = true;
 $owner_name = $_POST['owner_name'] ?? 'Your Name';
 $owner_email = $_POST['owner_email'] ?? 'user@domain.tld';
 $collective_title = $_POST['collective_title'] ?? 'My collective';
-$collective_url = $_POST['collective_url'] ?? 'http://collective.yourdomain.tld';
+$collective_url = $_POST['collective_url'] ?? 'https://collective.yourdomain.tld';
 $log_errors = $_POST['log_errors'] ?? 'yes';
 $installation_path = $_POST['installation_path'] ?? str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['DOCUMENT_ROOT'] . $_SERVER['PHP_SELF']);
 $root_path_absolute = $_POST['root_path_absolute'] ?? $_SERVER['DOCUMENT_ROOT'] . '/';
-$root_path_web = $_POST['root_path_web'] ?? "http://{$_SERVER['HTTP_HOST']}/";
+$root_path_web = $_POST['root_path_web'] ?? "https://{$_SERVER['HTTP_HOST']}/";
 $date_format = $_POST['date_format'] ?? 'dS F Y';
 $per_page = $_POST['per_page'] ?? '10';
 $mail_settings = $_POST['mail_settings'] ?? 'mail';
@@ -302,7 +303,7 @@ if (isset($_POST['install']) && $_POST['install'] == 'yes') {
             '`value` text NOT NULL,' .
             '`help` text NOT NULL,' .
             'PRIMARY KEY  (`setting`)' .
-            ') ENGINE=MyISAM';
+            ');';
         try {
             $success = $db_link->prepare($query);
             $success->execute();
@@ -597,7 +598,7 @@ if ($show_form) {
     ?>
     <p>
         Welcome to the setup/installation of
-        <a href="https://scripts.robotess.net">Enthusiast <?= RobotessNet\App::getVersion() ?></a>, the listing
+        <a href="https://github.com/DudeThatsErin/enth">Enthusiast <?= RobotessNet\App::getVersion() ?></a>, the listing
         collective management system! Thank you for trying out the script. This file
         sets up the database tables and initial settings for your Enthusiast <?= RobotessNet\App::getVersion() ?>
         installation. Please make sure that your <code>config.php</code> file has
@@ -1057,4 +1058,4 @@ if ($show_form) {
     </form>
     <?php
 }
-require_once('footer.php');
+//require_once('footer.php');

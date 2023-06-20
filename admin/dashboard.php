@@ -52,8 +52,8 @@ require_once('mod_errorlogs.php');
 
     <p>You are currently using Enthusiast <?= RobotessNet\App::getVersion() ?>. Please make sure you
         always keep your script up-to-date. Link to the latest version is available on
-        <a href="https://scripts.robotess.net/projects/enthusiast" target="_blank"
-           title="PHP Script Enthusiast ported to PHP7">project's page</a>.</p>
+        <a href="https://github.com/DudeThatsErin/enth" target="_blank"
+           title="PHP Script Enthusiast ported to PHP8">project's page</a>.</p>
 
     <h2>Server info (useful for debugging and reporting issues)</h2>
     <p class="enth-version">Enthusiast: <?= RobotessNet\App::getVersion() ?></p>
@@ -63,8 +63,8 @@ try {
     if (isset($db_link) && $db_link instanceof PDO) {
         $mysqlVersion = $db_link->getAttribute(PDO::ATTR_SERVER_VERSION);
         echo '<p>MySQL: ' . $mysqlVersion . '</p>';
-        if ((float)$mysqlVersion >= 8.0) {
-            echo '<p class="important">Warning: you are using MySQL >= 8.0 and the proper script operation is not guaranteed. Please make sure all of your listing tables (the ones that contain members) have field `added` defined as nullable; for that, go to phpmyadmin, select the table, then choose \'Structure\' tab, and there check that column `added` has \'Null\' marked as Yes, not No</p>';
+        if ((float)$mysqlVersion >= "10.5.19") {
+            echo '<p class="important">Warning: you are using MySQL >= 10.5.19 and the proper script operation is not guaranteed. Please make sure all of your listing tables (the ones that contain members) have field `added` defined as nullable; for that, go to phpmyadmin, select the table, then choose \'Structure\' tab, and there check that column `added` has \'Null\' marked as Yes, not No</p>';
         }
     }
 } catch (Exception $exception) {
@@ -236,7 +236,7 @@ foreach ($owned as $id) {
 }
 echo '</ul>';
 
-$feedUrl = 'https://scripts.robotess.net/projects/enthusiast/atom.xml';
+$feedUrl = 'https://dudethatserin.com/category/enth/feed';
 ?>
     <h1>Enthusiast Updates</h1>
     <script>

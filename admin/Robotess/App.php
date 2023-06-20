@@ -29,7 +29,7 @@ final class App
 {
     public static function getVersion(): string
     {
-        return '[Robotess Fork] v. 1.0.6 (Beta)';
+        return '[Erin\'s Fork] v. 1.1.0';
     }
 
     public static function getLinkWithOriginal(): string
@@ -39,6 +39,6 @@ final class App
 
     public static function getLink(): string
     {
-        return '<a href="https://scripts.robotess.net" target="_blank" title="PHP Scripts: Enthusiast, Siteskin, Codesort, FanUpdate, Listing Admin - ported to PHP 7">Enthusiast ' . self::getVersion() . '</a>';
+        return '<a href="https://github.com/DudeThatsErin/enth" target="_blank" title="PHP Scripts: Enthusiast, Siteskin, Codesort, FanUpdate, Listing Admin - ported to PHP 8">Enthusiast ' . self::getVersion() . '</a>';
     }
 }

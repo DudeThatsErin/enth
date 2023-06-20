@@ -8,9 +8,10 @@
  * $db_database - actual database name
  ******************************************************************************/
 $db_server = 'localhost';
-$db_user = 'username';
-$db_password = 'password';
-$db_database = 'databasename';
+$db_user = 'u406808841_testing';
+$db_password = 'Tessie5567';
+$db_database = 'u406808841_testing';
+
 
 /******************************************************************************
  * DATABASE TABLE VARIABLES
@@ -35,7 +36,7 @@ $db_errorlog = 'errorlog';
 
 
 /******************************************************************************
- * DO NOT EDIT ANYTHING BELOW THIS LINE UNTIL THE NEXT SIMILAR NOTE!
+ * DO NOT MODIFY BELOW THIS LINE!
  ******************************************************************************/
 if (!defined('DATABASE_CONNECT_ERROR')) {
     define('DATABASE_CONNECT_ERROR', 'Cannot connect to the database. ' .
@@ -45,41 +46,3 @@ if (!defined('STANDARD_ERROR')) {
     define('STANDARD_ERROR', '<p class="error">Error executing query. ' .
         'Please see the error logs.');
 }
-
-if (!defined('ENTH_PATH')) {
-// get installation path
-    $query = "SELECT `value` FROM `$db_settings` WHERE `setting` = " .
-        '"installation_path"';
-    try {
-        $db_link = new PDO('mysql:host=' . $db_server . ';dbname=' . $db_database . ';charset=utf8', $db_user,
-            $db_password);
-        $db_link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die(DATABASE_CONNECT_ERROR . $e->getMessage());
-    }
-    $result = $db_link->query($query);
-    if (!$result) {
-        die('Error executing query: <i>' . $result->errorInfo()[2] .
-            '</i>; Query is: <code>' . $query . '</code>');
-    }
-    $result->setFetchMode(PDO::FETCH_ASSOC);
-    $row = $result->fetch();
-    if ($row === false) {
-        throw new RuntimeException('Query ' . $query . ' gave unexpected result - false');
-    }
-    $path = $row['value'];
-    define('ENTH_PATH', $row['value']);
-}
-/******************************************************************************
- * END OF THE SENSITIVE LINES
- ******************************************************************************/
-
-
-/******************************************************************************
- * LISTING ID VARIBLE
- * This variable is for the listing ID of the fanlisting this config file is
- * for. When this file is in the collective directory, it should be commented
- * (must have '//' before the line). Otherwise, it MUST be uncommented (no
- * '//' before the line) and the proper listing ID should be set.
- ******************************************************************************/
-//$listing = 1;

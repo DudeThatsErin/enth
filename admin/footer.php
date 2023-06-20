@@ -80,7 +80,7 @@ require_once ('Robotess/Autoloader.php');
     <a href="http://indisguise.org/" target="_blank">Indisguise</a> |
     <a href="http://scripts.indisguise.org/" target="_blank">Indiscripts</a>
     <br/><br/><?= RobotessNet\App::getLink() ?>
-    - support since 2019 by <a href="https://robotess.net" target="_blank" title="PHP Developer">Ekaterina</a>
+    - support since 2023 by <a href="https://github.com/DudeThatsErin/enth" target="_blank" title="Full Stack Developer">Erin</a>
 </div>
 
 </body>

@@ -45,8 +45,9 @@ if (!defined('STANDARD_ERROR')) {
     define('STANDARD_ERROR', '<p class="error">Error executing query. ' .
         'Please see the error logs.');
 }
-// get installation path
+
 if (!defined('ENTH_PATH')) {
+// get installation path
     $query = "SELECT `value` FROM `$db_settings` WHERE `setting` = " .
         '"installation_path"';
     try {
@@ -56,21 +57,16 @@ if (!defined('ENTH_PATH')) {
     } catch (PDOException $e) {
         die(DATABASE_CONNECT_ERROR . $e->getMessage());
     }
-    $result = $db_link->prepare($query);
-    $result->execute();
+    $result = $db_link->query($query);
     if (!$result) {
-        if (function_exists('log_error')) {
-            log_error('config.php',
-                'Error executing query: <i>' . $result->errorInfo()[2] .
-                '</i>; Query is: <code>' . $query . '</code>');
-            die(STANDARD_ERROR);
-        }
-
         die('Error executing query: <i>' . $result->errorInfo()[2] .
             '</i>; Query is: <code>' . $query . '</code>');
     }
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $row = $result->fetch();
+    if ($row === false) {
+        throw new RuntimeException('Query ' . $query . ' gave unexpected result - false');
+    }
     $path = $row['value'];
     define('ENTH_PATH', $row['value']);
 }
