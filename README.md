@@ -1,7 +1,10 @@
 # Enthusiast for PHP8 [Erin's Fork]
 This is the main repo for Enthusiast 1.1 for PHP8.
 
+## Credits
 The original author is [Angela Sabas](http://scripts.indisguise.org/). Angela's ReadMe can be found [here](https://github.com/DudeThatsErin/enth/blob/main/Old%20Readmes/Angela%20README.md).
+
+[Lysianthus](https://github.com/Lysianthus/enthusiast) also contributed.
 
 The previous author is [Ekaterina](https://scripts.robotess.net/). Ekaterina's ReadMe can be found [here](https://github.com/DudeThatsErin/enth/blob/main/Old%20Readmes/Ekaterina%20README.md).
 
