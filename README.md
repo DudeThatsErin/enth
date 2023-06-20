@@ -3,7 +3,7 @@ This is the main repo for Enthusiast 1.1 for PHP8.
 
 The original author is [Angela Sabas](http://scripts.indisguise.org/). Angela's ReadMe can be found [here](https://github.com/DudeThatsErin/enth/blob/main/Old%20Readmes/Angela%20README.md).
 
-The previous author is [Ekaterina](https://scripts.robotess.net/). Ekaterina's ReadMe can be found [here]().
+The previous author is [Ekaterina](https://scripts.robotess.net/). Ekaterina's ReadMe can be found [here](https://github.com/DudeThatsErin/enth/blob/main/Old%20Readmes/Ekaterina%20README.md).
 
 *Note: Ekaterina's version is not recommended for new installations. Mine **can** be used for new installations.*
 
