@@ -15,6 +15,8 @@
 
  For more information please view the readme.txt file.
 ******************************************************************************/
+use RobotessNet\StringUtils;
+
 session_start();
 require_once( 'logincheck.inc.php' );
 if( !isset( $logged_in ) || !$logged_in ) {
@@ -35,6 +37,10 @@ require_once( 'mod_owned.php' );
 require_once( 'mod_settings.php' );
 require_once( 'mod_members.php' );
 
+$country = '';
+$countriesValues = include 'countries.inc.php';
+$countryId = null;
+
 $show_default = true;
 ?>
 <p class="title">
@@ -48,6 +54,7 @@ if( isset( $_REQUEST['id'] ) && $_REQUEST['id'] != '' ) {
    $fields = explode( ',', $info['additional'] );
    if( $fields[0] == '' )
       array_pop( $fields );
+
 
    if( isset( $_POST['add'] ) && $_POST['add'] == 'yes' ) {
 
@@ -65,9 +72,15 @@ if( isset( $_REQUEST['id'] ) && $_REQUEST['id'] != '' ) {
       $table = $info['dbtable'];
       $email = $_POST['email'];
       $name = $_POST['name'];
-      $country = '';
-      if( isset( $_POST['country'] ) )
-         $country = $_POST['country'];
+
+      // get country
+      if (isset($_POST['enth_country']) && $_POST['enth_country'] !== '') {
+        $countryId = (int)(StringUtils::instance()->cleanNormalize($_POST['enth_country']));
+          if (isset($countriesValues[$countryId])) {
+            $country = $countriesValues[$countryId];
+          }
+      }
+
       $url = $_POST['url'];
       if( count( $fields ) > 0 )
          foreach( $fields as $field ) {
@@ -86,12 +99,11 @@ if( isset( $_REQUEST['id'] ) && $_REQUEST['id'] != '' ) {
             $query .= '"' . $values[$field] . '", ';
       $query .= "0, MD5( '$password' ), 1, 1, NULL )";
 
-      $db_link = mysql_connect( $info['dbserver'], $info['dbuser'],
-         $info['dbpassword'] )
+      $db_link = mysqli_connect( $db_server, $db_user, $db_password )
          or die( 'Cannot connect to the database. Try again.' );
-      mysql_select_db( $info['dbdatabase'] )
+      mysqli_select_db( $db_link, $db_database )
          or die( 'Cannot connect to the database. Try again.' );
-      $result = mysql_query( $query );
+      $result = mysqli_query( $db_link, $query );
 
       if( $result )
          echo '<p class="important">Successfully added ' . $name . ' (' .
@@ -133,13 +145,13 @@ if( isset( $_REQUEST['id'] ) && $_REQUEST['id'] != '' ) {
    <tr><td>
    Name
    </td><td>
-   <input type="text" name="name" />
+   <input type="text" name="name" required />
    </td></tr>
 
    <tr><td>
    Email address
    </td><td>
-   <input type="text" name="email" />
+   <input type="text" name="email" required />
    </td></tr>
 
 <?php
@@ -148,13 +160,23 @@ if( isset( $_REQUEST['id'] ) && $_REQUEST['id'] != '' ) {
       <tr><td>
       Country
       </td><td>
-      <select name="country">
-      <?php include $path . 'countries.inc.php'; ?>
+
+
+      <select name="enth_country" class="show_join_country_field" required>
+        <?php
+          foreach ($countriesValues as $key => $countryVal) {
+          $selected = '';
+            if ($country !== '' && $countryId === $key) {
+              $selected = ' selected="selected"';
+            }
+            echo '<option value="' . $key . '"' . $selected . '>' . $countryVal . '</option>';
+          }
+          ?>
       </select>
       </td></tr>
-<?php
-      }
-?>
+        <?php
+          }
+        ?>
 
    <tr><td>
    Website URL
