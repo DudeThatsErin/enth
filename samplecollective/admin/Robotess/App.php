@@ -29,7 +29,7 @@ final class App
 {
     public static function getVersion(): string
     {
-        return '[Erin\'s Fork] v. 1.1.0';
+        return '[Erin\'s Fork] v. 1.2';
     }
 
     public static function getLinkWithOriginal(): string

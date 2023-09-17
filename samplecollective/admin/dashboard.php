@@ -236,7 +236,7 @@ foreach ($owned as $id) {
 }
 echo '</ul>';
 
-$feedUrl = 'https://dudethatserin.com/category/enth/feed';
+$feedUrl = 'https://blog.dudethatserin.com/category/enth/feed';
 ?>
     <h1>Enthusiast Updates</h1>
     <script>
